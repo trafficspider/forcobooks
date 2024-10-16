@@ -1,0 +1,184 @@
+/* Add your custom styles here */
+body {
+    font-family: 'Zilla Slab', serif;
+    margin: 0;
+    padding: 20px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1050; /* Added z-index */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-buttons {
+    margin-top: 10px;
+    text-align: right;
+}
+
+.modal-buttons button {
+    margin-left: 10px;
+}
+
+/* Keep this if you want to ensure the textarea takes full width */
+#commentText {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Styles for the invoice modal */
+#invoiceModal .modal-dialog {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+#invoiceModal .modal-content {
+    height: 100vh;
+    border-radius: 0;
+    border: none;
+    display: flex;
+    flex-direction: column;
+}
+
+#invoiceModal .modal-header {
+    padding: 10px 15px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+#invoiceModal .modal-body {
+    flex-grow: 1;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#invoiceModal .modal-footer {
+    padding: 10px 15px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+}
+
+#invoiceFrame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    flex-grow: 1;
+}
+
+/* Ensure the delete button is inside the modal */
+#deleteInvoiceBtn {
+    margin-right: auto;
+}
+
+/* Invoice modal styles */
+.invoice-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.invoice-modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+}
+
+.invoice-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.invoice-modal-body {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.invoice-modal-footer {
+    padding-top: 10px;
+}
+
+#invoiceFrame {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* You might want to add some specific styles for headings or other elements */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Zilla Slab', serif;
+    font-weight: 600;
+}
+
+/* Add any other custom styles you want to apply the new font to */
+
+/* Add this to your existing styles */
+.highlighted {
+    background-color: #e6ffe6 !important; /* Light green color */
+}
+
+/* Style for the highlight button */
+.highlightBtn {
+    padding: 2px 5px;
+    font-size: 0.8em;
+    cursor: pointer;
+}
