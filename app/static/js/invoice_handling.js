@@ -81,9 +81,23 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.addEventListener('click', function() {
             const invoicePath = this.dataset.invoicePath;
             const transactionId = this.dataset.transactionId;
-            invoiceFrame.src = `/view_invoice/${invoicePath}`;
-            deleteInvoiceBtn.dataset.transactionId = transactionId;
-            modal.style.display = 'block';
+            fetch(`/view_invoice/${invoicePath}`)
+                .then(response => {
+                    if (!response.ok) {
+                        return response.json().then(err => { throw err; });
+                    }
+                    return response.blob();
+                })
+                .then(blob => {
+                    const url = window.URL.createObjectURL(blob);
+                    invoiceFrame.src = url;
+                    deleteInvoiceBtn.dataset.transactionId = transactionId;
+                    modal.style.display = 'block';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert(error.error || 'Failed to load the invoice.');
+                });
         });
     }
 
@@ -119,14 +133,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
     closeBtn.onclick = function() {
         modal.style.display = 'none';
-    }
+    };
 
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = 'none';
         }
-    }
+    };
 
-    uploadInvoiceBtns.forEach(attachUploadInvoiceListener);
-    viewInvoiceBtns.forEach(attachViewInvoiceListener);
+    function viewInvoice(invoicePath, transactionId) {
+        fetch(`/view_invoice/${invoicePath}`)
+            .then(response => {
+                if (!response.ok) {
+                    return response.json().then(err => { throw err; });
+                }
+                return response.blob();
+            })
+            .then(blob => {
+                const url = window.URL.createObjectURL(blob);
+                window.open(url, '_blank');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert(error.error || 'Failed to load the invoice.');
+            });
+    }
 });
